@@ -1,4 +1,4 @@
-import type { StoreData, Record, Category, Settings } from '../types';
+import type { StoreData, ExpenseRecord, Category, Settings } from '../types';
 import { STORAGE_KEY, PRESET_CATEGORIES } from './constants';
 
 const CURRENT_VERSION = 1;
@@ -44,7 +44,7 @@ export function writeAll(data: StoreData): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
-export function getRecords(): Record[] {
+export function getRecords(): ExpenseRecord[] {
   return readAll().records;
 }
 

@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useRecordStore } from '../store/useRecordStore';
-import type { Record } from '../types';
+import type { ExpenseRecord } from '../types';
 
 export function useRecords() {
   const { records, add, update, remove } = useRecordStore();
@@ -14,9 +14,9 @@ export function useRecords() {
   );
 
   const addRecord = useCallback(
-    (data: Omit<Record, 'id' | 'createdAt' | 'updatedAt'>) => {
+    (data: Omit<ExpenseRecord, 'id' | 'createdAt' | 'updatedAt'>) => {
       const now = Date.now();
-      const record: Record = {
+      const record: ExpenseRecord = {
         ...data,
         id: crypto.randomUUID(),
         createdAt: now,

@@ -1,4 +1,4 @@
-export interface Record {
+export interface ExpenseRecord {
   id: string;
   type: 'expense' | 'income';
   amount: number;
@@ -24,7 +24,7 @@ export interface Settings {
 
 export interface StoreData {
   version: number;
-  records: Record[];
+  records: ExpenseRecord[];
   categories: Category[];
   settings: Settings;
 }

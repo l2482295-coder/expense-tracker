@@ -1,14 +1,14 @@
 import { create } from 'zustand';
-import type { Record } from '../types';
+import type { ExpenseRecord } from '../types';
 import { readAll, writeAll } from '../utils/storage';
 
 interface RecordState {
-  records: Record[];
+  records: ExpenseRecord[];
   _load: () => void;
-  add: (record: Record) => void;
-  update: (id: string, data: Partial<Record>) => void;
+  add: (record: ExpenseRecord) => void;
+  update: (id: string, data: Partial<ExpenseRecord>) => void;
   remove: (id: string) => void;
-  getByMonth: (year: number, month: number) => Record[];
+  getByMonth: (year: number, month: number) => ExpenseRecord[];
 }
 
 export const useRecordStore = create<RecordState>((set, get) => ({
